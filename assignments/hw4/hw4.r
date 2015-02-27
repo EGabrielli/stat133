@@ -6,6 +6,7 @@
 #### Function #1
 # Implement the function "listLengths". 
 
+
 # Input variable:
 # <data.list>: a list whose elements are vectors of varying length
 
@@ -14,9 +15,7 @@
 #   element of <data.list>
 
 listLengths <- function(data.list) {
-
-    # your code here
-
+  sapply(data.list, length)
 }
 
 #### Function 2
@@ -27,16 +26,28 @@ listLengths <- function(data.list) {
 # <k> : an integer
 
 # Output variable
-# <x.powers> : A matrix of size [n x k] where the first column is x, the second column x^2, the third column x^4, etc.
+# <x.powers> : A matrix of size [n x k] where the first column is x, the second column x^2, the third column x^3, etc.
 #              the column names should be : "x", "x^2", "x^3" etc.
 
 powers <- function(x, k){
-
+ i <-2
+ y <- x
+ while(i<=k){y=cbind(y, x^i); i=i+1}
+ colnames(y) <- c("x",paste("x^", 2:k,sep=""))
+ return (y)
 }
+
 
  
 #### Function #3
 #### Implement the function "recipeConversion"
+
+#Steps:
+#1)check for inputting columns: %in%; stop(""")
+ #2)grep() get row numbers
+ #3) recipe[grep(),"unit"] = "ml"/"gr"
+ #4) recipe[grep(), "amount"]=round(*278)
+ #5) return(recipe)
 
 # Input variable:
 # <recipe> : A data frame with three columns named "amount", "unit" and "ingredient"
@@ -63,8 +74,30 @@ powers <- function(x, k){
 # function should stop and print out an error message
 
 # Put your code here
-recipeConversion <- function(recipe){
 
+##
+recipeConversion <- function(recipe){
+  
+  recipe.metric <- recipe
+  for(i in 1:nrow(recipe.metric)){
+    
+    section <- recipe.metric[i,]
+    if ((section[2] == "oz") | (section[2] == "ozs")){
+      convert.alpha <- (5 * round((section[1]*28.3)/5))
+      section[1] <- convert.alpha
+      section[2] <- "gr"
+    }
+    
+    if ((section[2] == "cup")| (section[2] == "cups")){
+      convert.beta <- (5*round((section[1]*236.6)/5))
+      section[1] <- convert.beta
+      section[2] <- "ml"
+    }
+    
+    
+    return(recipe.metric)
+    
+  }
 }
 
 
