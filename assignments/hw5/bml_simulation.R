@@ -32,4 +32,3 @@ bml.sim(30,60,.75)
 #didnt stop
 bml.sim(50,25,.1)
 #165,110
-
