@@ -73,11 +73,6 @@ max.m <- max(m)
 
 # Load family.rda that is in your hw1 folder, the variable is called family:
 load("family.rda")
-<<<<<<< HEAD
-load("/Users/EJGabrielli/Downloads/family.rda")
-=======
-#load("/Users/EJGabrielli/Downloads/family.rda")
->>>>>>> 1eceaead2821af866cd61cc0372b5d6278159ef4
 
 ### Check what data type the variable is with : class(family)
 ### now take a look at the data frame by typing family in the console.
