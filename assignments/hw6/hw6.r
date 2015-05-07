@@ -27,27 +27,61 @@
 #                 the entries are 0 for days where the doctor is a
 #                 non-adopter, else 1 (so once a row turns to 1 it stays as 1).
 
+
 sim.doctors <- function(initial.doctors, n.doctors, n.days, p){
+  if (p>1){
+    return("p is >1")
+  }
+ 
+  if (length(initial.doctors) > n.doctors){
+    return("initial.doctors does not equal n.doctors")
+  }
 
-  # Set up the output variable, define it as a matrix then use initial.doctors
-  # to set the first column (day)
+  if (n.doctors > length(initial.doctors)){
+    return("initial.doctors does not equal n.doctors")
+  }
 
-  # Run a simulation for <n.days> (use a for loop).  In the loop:
-  # 1) pick two random doctors
-  # 2) check if one has adopted the other hasn't
-  # 3) convert the non-adopter with probability p
+  i = 0
+  for (i in 1:length(initial.doctors)){
+    if (initial.doctors[i] > 1){
+      return("initial.doctors has numbers other than 0s and 1s")
+    }
+  }
+  
+  docVec= 1:length(initial.doctors)
 
-  # return the output
+  changedMed <- matrix(c(docVec, initial.doctors), nrow = 2, ncol = n.doctors, byrow = T)
 
+  for (i in 1:n.days){
+    docmat <- runif(1,0,1)
+
+    checkp <- sample(docVec, 2, replace=F)
+
+    if (changedMed[2,checkp[1]] > changedMed[2,checkp[2]]){
+      if (docmat <= p){
+        changedMed[2,checkp[2]] = changedMed[2,checkp[1]]
+      } 
+    }
+  
+    if (changedMed[2,checkp[2]] > changedMed[2,checkp[1]]){
+      if (docmat <= p){
+        changedMed[2,checkp[1]] = changedMed[2,checkp[2]]
+      }
+      
+      if (sum(changedMed[2,]) == n.doctors){
+        return(changedMed)
+      }
+    
+      i = i + 1
+      
+    }
+  }
+  return(changedMed)
 }
-
-# When you test your function you have to generate <initial.doctors> and
-# pick values for the other input parameters.
-
-set.seed(42)
 # Generate a value for <initial.doctors> that has 10% 1s and 90% 0s.
 # Run your function for at least 5 different values of <p> and plot
 # on x-axis: days,
 # on y-axis : the number of doctors that have already adopted the drug, on that day
 # Put all 5 lines in one figure (e.g. use first plot() then lines() for the subsequent lines)
+
 
