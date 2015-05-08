@@ -2,19 +2,22 @@
 # required to perform the following tasks. The dataset includes data for houses
 # in the city of Berkeley.
 
-
+load("/Users/EJGabrielli/Desktop/stat133/SFHousing-2.rda")
 # calculate the mean and median bsqft of houses in Berkeley. Store these as the
 # variables <mean.bsqft> and <med.bsqft> respectively.
 
-# mean.bsft <- your code here
-# med.bsqft <- your code here
+# mean.bsqft <- your code here
 
+mean.bsqft<- mean(housing$bsqft, na.rm=TRUE)
+# med.bsqft <- your code here
+med.bsqft <- median(housing$bsqft, na.rm=TRUE)
 
 # For each house in the dataset, calculate the squared difference between its
 # bsqft and the median bsqft of houses in Berkeley. Store this as the variable
 # <bsqft.diffs>. Note that this should be a numeric vector with length equal to
 # the number of observations in the dataset
 
+housing$bsqft.diffs <- (housing$bsqft-med.bsqft)^2
 # bsqft.diffs <- your code here
 
 
@@ -22,8 +25,11 @@
 # Please create two new data frames with the following two subsets
 # and store them with the indicated names:
 # 1) houses whose bsqft is strictly greater than <mean.bsqft>:  <bsft.greater>
+if.true <- c(housing$bsqft>mean.bsqft)
+bsqft.greater <- housing$bsqft[if.true==TRUE]
 # 2) houses whose bsqft is less than or equal to  <mean.bsqft>: <bsqft.less>
-
+less.than <- c(housing$bsqft <=mean.bsqft)
+bsqft.less <- housing$bsqft[less.than==TRUE]
 # bsqft.greater <- your code here
 # bsqft.less <- your code here
 
@@ -32,6 +38,7 @@
 # these variables <rooms.greater.price> and <rooms.less.price>.
 
 # rooms.greater.price <- your code here
+rooms.greater.price <-c(bsqft.greater)==
 # rooms.less.price <- your code here
 
 
