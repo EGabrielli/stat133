@@ -51,8 +51,9 @@
 # the hw3 directory in the file WR1500MeterMen.rda.
 
 # load the data
-load("Desktop/stat133/assignments/hw2")
-# The name of the object loaded is wr1500m
+                                        # load("Desktop/stat133/assignments/hw2")
+
+                                        # The name of the object loaded is wr1500m
 # The time (in the column "times") in these data are recorded in seconds, 
 # and they are seconds over 3 minutes. 
 # So a time of 70 is really 4 minutes and 10 seconds.
@@ -180,7 +181,8 @@ lines(x = c(wr_1998,2014), y = rep(min(wr1500m$times_sec),2))
 # It can be loaded into R with
 
 # load( your code here )
-load("~/Desktop/stat133/assignments/hw2/SummerOlympics2012Ctry.rda")
+# load("~/Desktop/stat133/assignments/hw2/SummerOlympics2012Ctry.rda")
+load("SummerOlympics2012Ctry.rda")
 
 #Q6 Take a look at the variables in this data frame.
 # What kind of variable is GDP and population?
@@ -330,7 +332,8 @@ symbols(wonMetal$longitude, wonMetal$latitude,
 # in the Olympics.
 
 # load( )
-load("~/Desktop/stat133/assignments/hw2/London2012ALL_ATHLETES.rda")
+# load("~/Desktop/stat133/assignments/hw2/London2012ALL_ATHLETES.rda")
+load("London2012ALL_ATHLETES.rda")
 # There is one observation for each athlete. 
 # (Actually, about 20 athletes have two records if they
 # competed in different sporting events. Let's not worry about that.)
