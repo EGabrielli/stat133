@@ -52,7 +52,7 @@
 
 # load the data
                                         # load("Desktop/stat133/assignments/hw2")
-
+load("WR1500MeterMen.rda")
                                         # The name of the object loaded is wr1500m
 # The time (in the column "times") in these data are recorded in seconds, 
 # and they are seconds over 3 minutes. 
