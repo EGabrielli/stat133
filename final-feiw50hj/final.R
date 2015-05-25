@@ -309,12 +309,11 @@ if(cols==T){
     u<- mean(m[,i])
     std<- sd(m[,i])
   }
-}
+} 
 else {
   
 }
-  
- }
+}
 
 
 # [8 pts]
@@ -337,7 +336,7 @@ else {
 
 PermDiff <- function(cases, controls, k=5000){   
   sample(cases,controls,k)
-  cases <- 
+  #cases <-   # inga commented out
   
 }
 
@@ -374,7 +373,7 @@ set.seed(123456)
 #    increase the counter by 1
 
 
-function <- NumJackpot(k, B){
+NumJackpot <- function(k, B){
   n.jackpot <- c(1:B)
   for(i in 1:B){
     winning <- paste(sample(1:19,3),collapse=" ")
