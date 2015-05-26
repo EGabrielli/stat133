@@ -1,0 +1,16 @@
+Total: 17/25
+##!! graded from email on March 16
+
+Part 1:  bml_functions.R
+a. bml.init 2/2
+
+b. bml.step 5/5
+
+c. bml.sim 2/2
+
+Part 2: bml_simulation.R 6/6
+
+Part 3: bml_comments and bml_figures 2/10
+##!!  No bml_comments or bml_figures file was
+##!! found but some of the prepatory work was done
+##!! in bml_simulations.R
