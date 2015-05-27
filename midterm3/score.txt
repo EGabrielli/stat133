@@ -1,0 +1,21 @@
+Total: 12/20
+
+Function 1
+5/5
+
+Function 2
+2/5
+ you found a similar example but more is needed to adapt to 
+ the question asked.
+
+Function 3
+4/5
+
+There are a few problem cases, e.g. when “his” occurs at the start of the string
+or when he occurs in the middle of a word like the.
+
+Function 4
+1/5
+Some of the right functions were used in the example, but your code
+did not not split the string into letters or count letter frequencies.
+
