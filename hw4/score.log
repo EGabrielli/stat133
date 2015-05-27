@@ -7,21 +7,21 @@ INFO:root:Executed R('powers.r <- powers(seq(1, 3, by = 1), 3)')
 INFO:root:(3 points) R('all.equal(powers.r, sol$powers, check.attributes=F)')[0] is True
 INFO:root:(1 points) R('all.equal(length(powers.r), length(sol$powers), check.attributes=F)')[0] is True
 INFO:root:Executed R('recipe.r <- recipeConversion(test$recipe)')
-ERROR:root:(3 points) Checking R('all.equal(recipe.r, sol$recipe, check.attributes=F, tolerance=1e-1)')[0]
+ERROR:root:(3 points) Checking R('all.equal(recipe.r, sol$recipe, check.attributes=F, tolerance=1e1)')[0]
 ERROR:root:... Expecting: True
-ERROR:root:... But got:   Component “amount”: Mean relative difference: 235.6
+ERROR:root:... But got:   Component “amount”: Mean absolute difference: 353.4
 INFO:root:Executed R('bootstrapVarEst.r <- bootstrapVarEst(test$bootstrapVarEst.x, test$bootstrapVarEst.B)')
 ERROR:root:(3 points) Checking R('all.equal(bootstrapVarEst.r, sol$bootstrapVarEst, check.attributes=F, tolerance=1)')[0]
 ERROR:root:... Expecting: True
 ERROR:root:... But got:   target is NULL, current is numeric
 INFO:root:Executed R('jackknifeVarEst.r <- jackknifeVarEst(test$jackknifeVarEst.x)')
-ERROR:root:(3 points) Checking R('all.equal(jackknifeVarEst.r, sol$jackknifeVarEst, check.attributes=F, tolerance=1e-1)')[0]
+ERROR:root:(3 points) Checking R('all.equal(jackknifeVarEst.r, sol$jackknifeVarEst, check.attributes=F, tolerance=1)')[0]
 ERROR:root:... Expecting: True
 ERROR:root:... But got:   target is NULL, current is numeric
 INFO:root:Executed R('samplingVarEst.r <- samplingVarEst(test$samplingVarEst.x, test$samplingVarEst.type)')
 ERROR:root:Got exception on main handler
 Traceback (most recent call last):
-  File "/Users/andyatcal/Library/Python/2.7/lib/python/site-packages/gradebook/score.py", line 164, in run
+  File "/Library/Python/2.7/site-packages/gradebook/score.py", line 164, in run
     exec(command, g)
   File "<string>", line 1, in <module>
   File "/Library/Python/2.7/site-packages/rpy2/robjects/__init__.py", line 269, in __call__
@@ -34,7 +34,7 @@ RRuntimeError: Error in samplingVarEst(test$samplingVarEst.x, test$samplingVarEs
   unused arguments (test$samplingVarEst.x, test$samplingVarEst.type)
 
 ERROR:root:Traceback (most recent call last):
-  File "/Users/andyatcal/Library/Python/2.7/lib/python/site-packages/gradebook/score.py", line 164, in run
+  File "/Library/Python/2.7/site-packages/gradebook/score.py", line 164, in run
     exec(command, g)
   File "<string>", line 1, in <module>
   File "/Library/Python/2.7/site-packages/rpy2/robjects/__init__.py", line 269, in __call__
@@ -47,7 +47,7 @@ RRuntimeError: Error in samplingVarEst(test$samplingVarEst.x, test$samplingVarEs
   unused arguments (test$samplingVarEst.x, test$samplingVarEst.type)
 
 Traceback (most recent call last):
-  File "/Users/andyatcal/Library/Python/2.7/lib/python/site-packages/gradebook/score.py", line 164, in run
+  File "/Library/Python/2.7/site-packages/gradebook/score.py", line 164, in run
     exec(command, g)
   File "<string>", line 1, in <module>
   File "/Library/Python/2.7/site-packages/rpy2/robjects/__init__.py", line 269, in __call__
@@ -59,12 +59,12 @@ Traceback (most recent call last):
 RRuntimeError: Error in samplingVarEst(test$samplingVarEst.x, test$samplingVarEst.type) : 
   unused arguments (test$samplingVarEst.x, test$samplingVarEst.type)
 
-ERROR:root:(3 points) Checking R('all.equal(samplingVarEst.r, sol$samplingVarEst, check.attributes=F, tolerance=1e-1)')[0]
+ERROR:root:(3 points) Checking R('all.equal(samplingVarEst.r, sol$samplingVarEst, check.attributes=F, tolerance=1)')[0]
 ERROR:root:... Expecting: True
 ERROR:root:... But got:   Traceback error
 ERROR:root:Got exception:
 Traceback (most recent call last):
-  File "/Users/andyatcal/Library/Python/2.7/lib/python/site-packages/gradebook/score.py", line 180, in check
+  File "/Library/Python/2.7/site-packages/gradebook/score.py", line 180, in check
     result = eval(command, g)
   File "<string>", line 1, in <module>
   File "/Library/Python/2.7/site-packages/rpy2/robjects/__init__.py", line 269, in __call__
@@ -77,7 +77,7 @@ RRuntimeError: Error in all.equal(samplingVarEst.r, sol$samplingVarEst, check.at
   object 'samplingVarEst.r' not found
 
 ERROR:root:Traceback (most recent call last):
-  File "/Users/andyatcal/Library/Python/2.7/lib/python/site-packages/gradebook/score.py", line 180, in check
+  File "/Library/Python/2.7/site-packages/gradebook/score.py", line 180, in check
     result = eval(command, g)
   File "<string>", line 1, in <module>
   File "/Library/Python/2.7/site-packages/rpy2/robjects/__init__.py", line 269, in __call__
@@ -90,7 +90,7 @@ RRuntimeError: Error in all.equal(samplingVarEst.r, sol$samplingVarEst, check.at
   object 'samplingVarEst.r' not found
 
 Traceback (most recent call last):
-  File "/Users/andyatcal/Library/Python/2.7/lib/python/site-packages/gradebook/score.py", line 180, in check
+  File "/Library/Python/2.7/site-packages/gradebook/score.py", line 180, in check
     result = eval(command, g)
   File "<string>", line 1, in <module>
   File "/Library/Python/2.7/site-packages/rpy2/robjects/__init__.py", line 269, in __call__
